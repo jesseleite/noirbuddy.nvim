@@ -1,7 +1,10 @@
 local M = {}
 
+M.opts = {}
+
 function M.setup(opts)
-  opts = opts or {}
+  M.opts = vim.tbl_deep_extend('force', M.opts, opts or {})
+  opts = M.opts
 
   vim.api.nvim_command("set termguicolors")
   vim.api.nvim_command(string.format("set background=%s", 'dark'))
