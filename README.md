@@ -1,4 +1,4 @@
-# Noirbuddy
+# Noirbuddy.nvim
 
 A highly customizable minimalist theme building framework for Neovim 🖤
 
@@ -23,38 +23,20 @@ Built on [colorbuddy.nvim](https://github.com/tjdevries/colorbuddy.nvim), with a
 
 1. Install using your favourite package manager:
 
-    > ***Breaking changes:** If you were previously using colorbuddy's `dev` branch, please switch to master!*
-
-    **Using [packer.nvim](https://github.com/wbthomason/packer.nvim):**
-
-    ```lua
-    use {
-      "jesseleite/nvim-noirbuddy",
-      requires = { "tjdevries/colorbuddy.nvim" }
-    }
-    ```
-
     **Using [lazy.nvim](https://github.com/folke/lazy.nvim):**
 
     ```lua
     {
-      'jesseleite/nvim-noirbuddy',
+      "jesseleite/noirbuddy.nvim",
       dependencies = {
-        { 'tjdevries/colorbuddy.nvim' }
+        { "tjdevries/colorbuddy.nvim" }
       },
       lazy = false,
       priority = 1000,
       opts = {
-        -- All of your `setup(opts)` will go here
+        -- All of your `setup(opts)` will go here when using lazy.nvim
       },
     }
-    ```
-
-    **Using [vim-plug](https://github.com/junegunn/vim-plug):**
-
-    ```vim
-    Plug 'tjdevries/colorbuddy.nvim'
-    Plug 'jesseleite/nvim-noirbuddy'
     ```
 
 2. Enable the colorscheme in your lua config:
@@ -74,8 +56,8 @@ The default `minimal` preset consists of a monochromatic grayscale palette with 
 You can select from one of the bundled [presets](https://github.com/jesseleite/nvim-noirbuddy/tree/master/lua/noirbuddy/presets) like so:
 
 ```lua
-require('noirbuddy').setup {
-  preset = 'miami-nights',
+require("noirbuddy").setup {
+  preset = "miami-nights",
 }
 ```
 
@@ -93,9 +75,9 @@ require('noirbuddy').setup {
 You can configure a custom `primary` color like so:
 
 ```lua
-require('noirbuddy').setup {
+require("noirbuddy").setup {
   colors = {
-    primary = '#6EE2FF',
+    primary = "#6EE2FF",
   },
 }
 ```
@@ -103,10 +85,10 @@ require('noirbuddy').setup {
 For a more duotone look, you can configure a `secondary` color:
 
 ```lua
-require('noirbuddy').setup {
+require("noirbuddy").setup {
   colors = {
-    primary = '#6EE2FF',
-    secondary = '#267FB5',
+    primary = "#6EE2FF",
+    secondary = "#267FB5",
   },
 }
 ```
@@ -114,9 +96,9 @@ require('noirbuddy').setup {
 You can also customize the `background` color:
 
 ```lua
-require('noirbuddy').setup {
+require("noirbuddy").setup {
   colors = {
-    background = '#18181A',
+    background = "#18181A",
   },
 }
 ```
@@ -126,16 +108,16 @@ Or even the base grayscale palette:
 ```lua
 require("noirbuddy").setup {
   colors = {
-    noir_0 = '#ffffff', -- `noir_0` is light for dark themes, and dark for light themes
-    noir_1 = '#f5f5f5',
-    noir_2 = '#d5d5d5',
-    noir_3 = '#b4b4b4',
-    noir_4 = '#a7a7a7',
-    noir_5 = '#949494',
-    noir_6 = '#737373',
-    noir_7 = '#535353',
-    noir_8 = '#323232',
-    noir_9 = '#212121', -- `noir_9` is dark for dark themes, and light for light themes
+    noir_0 = "#ffffff", -- `noir_0` is light for dark themes, and dark for light themes
+    noir_1 = "#f5f5f5",
+    noir_2 = "#d5d5d5",
+    noir_3 = "#b4b4b4",
+    noir_4 = "#a7a7a7",
+    noir_5 = "#949494",
+    noir_6 = "#737373",
+    noir_7 = "#535353",
+    noir_8 = "#323232",
+    noir_9 = "#212121", -- `noir_9` is dark for dark themes, and light for light themes
   },
 }
 ```
@@ -147,13 +129,13 @@ You may wish to configure specific colors for things that have semantic meaning 
 ```lua
 require("noirbuddy").setup {
   colors = {
-    diagnostic_error = '#EC0034',
-    diagnostic_warning = '#ff7700',
-    diagnostic_info = '#d5d5d5',
-    diagnostic_hint = '#f5f5f5',
-    diff_add = '#f5f5f5',
-    diff_change = '#737373',
-    diff_delete = '#EC0034',
+    diagnostic_error = "#EC0034",
+    diagnostic_warning = "#ff7700",
+    diagnostic_info = "#d5d5d5",
+    diagnostic_hint = "#f5f5f5",
+    diff_add = "#f5f5f5",
+    diff_change = "#737373",
+    diff_delete = "#EC0034",
   },
 }
 ```
@@ -190,9 +172,9 @@ Though noirbuddy handles highlight groups automatically, certain plugins may req
     ![](screenshots/mini-statusline.png)
 
     ```lua
-    local noirbuddy_statusline = require('noirbuddy.plugins.mini-statusline')
+    local noirbuddy_statusline = require("noirbuddy.plugins.mini-statusline")
 
-    require('mini.statusline').setup {
+    require("mini.statusline").setup {
       content = {
         active = noirbuddy_statusline.active,
         inactive = noirbuddy_statusline.inactive,
@@ -208,9 +190,9 @@ Though noirbuddy handles highlight groups automatically, certain plugins may req
     ![](screenshots/lualine.png)
 
     ```lua
-    local noirbuddy_lualine = require('noirbuddy.plugins.lualine')
+    local noirbuddy_lualine = require("noirbuddy.plugins.lualine")
 
-    require('lualine').setup {
+    require("lualine").setup {
       options = {
         theme = noirbuddy_lualine.theme,
         -- ...
@@ -226,8 +208,8 @@ Though noirbuddy handles highlight groups automatically, certain plugins may req
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 
     ```lua
-    require('cmp').setup {
-      window = require('noirbuddy.plugins.cmp').window,
+    require("cmp").setup {
+      window = require("noirbuddy.plugins.cmp").window,
       -- ...
     }
     ```
@@ -244,24 +226,24 @@ Since Noirbuddy is built on [colorbuddy.nvim](https://github.com/tjdevries/color
 
 ```lua
 -- Require colorbuddy...
-local Color, colors, Group, groups, styles = require('colorbuddy').setup {}
+local Color, colors, Group, groups, styles = require("colorbuddy").setup {}
 
 -- Override specific highlight groups...
-Group.new('TelescopeTitle', colors.primary)
-Group.new('TelescopeBorder', colors.secondary)
-Group.new('CursorLineNr', colors.primary, colors.noir_9)
-Group.new('Searchlight', nil, colors.secondary)
-Group.new('@comment', colors.noir_7)
-Group.new('@punctuation', colors.noir_2)
+Group.new("TelescopeTitle", colors.primary)
+Group.new("TelescopeBorder", colors.secondary)
+Group.new("CursorLineNr", colors.primary, colors.noir_9)
+Group.new("Searchlight", nil, colors.secondary)
+Group.new("@comment", colors.noir_7)
+Group.new("@punctuation", colors.noir_2)
 
 -- Add font styles to highlight groups...
-Group.new('@constant', colors.noir_2, nil, styles.bold)
-Group.new('@method', colors.noir_0, nil, styles.bold + styles.italic)
+Group.new("@constant", colors.noir_2, nil, styles.bold)
+Group.new("@method", colors.noir_0, nil, styles.bold + styles.italic)
 
 -- Link highlight groups...
-Group.link('SignifySignAdd', groups.DiffAdd)
-Group.link('SignifySignChange', groups.DiffChange)
-Group.link('SignifySignDelete', groups.DiffDelete)
+Group.link("SignifySignAdd", groups.DiffAdd)
+Group.link("SignifySignChange", groups.DiffChange)
+Group.link("SignifySignDelete", groups.DiffDelete)
 
 -- etc.
 ```
@@ -272,7 +254,7 @@ If you need access to Noirbuddy's raw color codes for other plugin configs:
 
 ```lua
 -- Export noirbuddy colors...
-local noirbuddy = require('noirbuddy.colors').all()
+local noirbuddy = require("noirbuddy.colors").all()
 
 -- Outputs a simple lua table...
 -- {
@@ -286,7 +268,7 @@ local noirbuddy = require('noirbuddy.colors').all()
 -- }
 ```
 
-You can run `:lua print(vim.inspect(require('noirbuddy.colors').all()))` to see a full list of what is exported.
+You can run `:lua print(vim.inspect(require("noirbuddy.colors").all()))` to see a full list of what is exported.
 
 ## Thank You!
 
