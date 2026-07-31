@@ -7,7 +7,7 @@ return require('noirbuddy.colors').mergeWithPreset('minimal', {
   diagnostic_warning = '#ff7700',
   diagnostic_info = '#47BAC0',
   diagnostic_hint = '#47BAC0',
-  diff_add = '#00EC6E',
-  diff_change = '#47BAC0',
-  diff_delete = '#ff0038',
+  diff_add = '#A6E3A1',
+  diff_change = '#FFBF63',
+  diff_delete = '#E06C75',
 })
